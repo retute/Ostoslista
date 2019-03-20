@@ -11,4 +11,4 @@ Sovellusta voi myös käyttää yhteisesti, jolloin ostoksia voidaan lisätä yhteisee
 
 [Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantakaavio.md)
 
-[Käyttötapaukset]
+[Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
