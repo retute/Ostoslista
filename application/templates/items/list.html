@@ -3,8 +3,8 @@
 {% block body %}
   <table>
     <tr>
-      <th>Item</th>
-      <th>Check</th>
+      <th>Tuote</th>
+      <th>Ostettu</th>
     </tr>
     {% for item in items %}
     <tr>
@@ -12,7 +12,7 @@
       <td>{{ item.check }}</td>
       <td>
 	<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
-	  <input type="submit" value="Merkitse ostetuksi!"/>
+	  <input type="submit" value="Merkitse ostetuksi"/>
 	</form>
       </td>
     </tr>

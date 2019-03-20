@@ -3,6 +3,7 @@
 {% block body %}
 <form method="POST" action="{{ url_for('items_create') }}">
   <input type="text" name="name"/>
-  <input type="submit" value="Add a new item"/>
+  <input type="text" category="category"/>
+  <input type="submit" value="Lisää uusi tuote"/>
 </form>
 {% endblock %}
