@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ostoslista</title>
+    <title>Shopping list</title>
   </head>
 
   <body>
       <ul>
-	<li><a href="{{ url_for('items_index') }}">N‰yt‰ ostoslista</a></li>
-	<li><a href="{{ url_for('items_form') }}">Lis‰‰ uusi tuote listaan</a></li>
+	<li><a href="{{ url_for('items_index') }}">Show the list</a></li>
+	<li><a href="{{ url_for('items_form') }}">Add a new item</a></li>
       </ul>
     {% block body %}
       <p>
