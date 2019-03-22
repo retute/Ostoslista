@@ -6,7 +6,9 @@ class Item(db.Model):
 
     name = db.Column(db.String(144), nullable=False)
     check = db.Column(db.Boolean, nullable=False)
+#    important = db.Column(db.Boolean, nullable=False)
 
     def __init__(self, name):
         self.name = name
         self.check = False
+#        self.important = False
