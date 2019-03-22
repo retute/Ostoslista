@@ -22,8 +22,13 @@ def items_set_checked(item_id):
 
 @app.route("/items/", methods=["POST"])
 def items_create():
+    form = ItemForm(request.form)
+    
+    if not form.validate():
+        return render_template("tasks/new.html", form = form)
+    
     i = Item(form.name.data)
-    i.check = (form.check.data)
+    i.check = form.check.data
 
     db.session().add(i)
     db.session().commit()
