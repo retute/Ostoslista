@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app
+from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
 
@@ -27,7 +27,7 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-@app.route("/auth/create")
+@app.route("/auth/create", methods=["GET", "POST"])
 def auth_create():
     form = LoginForm(request.form)
     
