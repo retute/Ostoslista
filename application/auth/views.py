@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, logout_user
 
 from application import app
 from application.auth.models import User
@@ -18,6 +18,25 @@ def auth_login():
         return render_template("auth/loginform.html", form = form,
                                error = "Username or password doesn't match. Try again!")
 
-
     login_user(user)
+    
     return redirect(url_for("index"))    
+
+@app.route("/auth/logout")
+def auth_logout():
+    logout_user()
+    return redirect(url_for("index"))
+
+@app.route("/auth/create")
+def auth_create():
+    form = LoginForm(request.form)
+    
+    if not form.validate():
+        return render_template("auth/new.html", form = form)
+    
+    u = User(form.username.data, form.password.data)
+
+    db.session().add(u)
+    db.session().commit()
+  
+    return redirect(url_for("index"))

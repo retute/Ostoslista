@@ -8,6 +8,8 @@ class Item(db.Model):
     check = db.Column(db.Boolean, nullable=False)
 #    important = db.Column(db.Boolean, nullable=False)
 
+
+
     def __init__(self, name):
         self.name = name
         self.check = False
