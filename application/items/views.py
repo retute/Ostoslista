@@ -2,7 +2,7 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.items.models import Item
 from application.items.forms import ItemForm
-from flask_login.utils import login_required
+from flask_login import login_required, current_user
 
 @app.route("/items", methods=["GET"])
 def items_index():
