@@ -11,8 +11,8 @@ Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Käytt
 
 
 ### Tulevia toiminnallisuuksia
-..* Käyttäjä voi lisätä listaan eri kategorioita (esim. ruoka, hygienia, jne.), joiden alle ostoksia voi luokitella.
+- Käyttäjä voi lisätä listaan eri kategorioita (esim. ruoka, hygienia, jne.), joiden alle ostoksia voi luokitella.
 
-..* Käyttäjä voi poistaa listasta tuotteita
+- Käyttäjä voi poistaa listasta tuotteita
 
-..* Sovellusta voi myös käyttää yhteisesti, jolloin ostoksia voidaan lisätä yhteiseen listaan esimerkiksi kämppisten kesken. 
+- Sovellusta voi myös käyttää yhteisesti, jolloin ostoksia voidaan lisätä yhteiseen listaan esimerkiksi kämppisten kesken. 
