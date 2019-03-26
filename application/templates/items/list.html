@@ -12,8 +12,9 @@
       <td>{{ item.check }}</td>
       <td>
 	<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
-	  <input type="submit" value="BUY"/>
+	  <input type="submit" value="Buy"/>
 	</form>
+	<button type="button" onclick="alert('Try to remove')">Remove!</button>
       </td>
     </tr>
     {% endfor %}

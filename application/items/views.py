@@ -18,7 +18,10 @@ def items_form():
 def items_set_checked(item_id):
 
     i = Item.query.get(item_id)
-    i.check = True
+    if i.check == True:
+        i.check = False
+    else:
+        i.check = True
     db.session().commit()
   
     return redirect(url_for("items_index"))
@@ -40,8 +43,13 @@ def items_create():
   
     return redirect(url_for("items_index"))
 
-#@app.route("/items/<item_id>/", methods=["POST"])
+#@app.route("/items/<item_id>/", method=["POST"])
+#@login_required
 #def items_remove(item_id):
-#    i = Item.query.remove(item_id)
+#    form = ItemForm(request.form)
 #    
+#    i = Item.query.remove(item_id)
+#    db.session().remove(i)
+#    db.session().commit()
+    
 #    return redirect(url_for("items_index"))
