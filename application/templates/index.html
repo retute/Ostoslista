@@ -7,13 +7,13 @@
   
   {% if no_need_to_shop is defined %}
   <p>
-  	The following users have checked their shopping lists:
+  	The following users are using this app:
   </p>
   
   <ul>
-  	{% for user in no_need_to_shop %}
+  	{% for user in list_users %}
   	<li>
-  		{{user.id}} {{user.username}}
+  		{{user.username}}
   	</li>
   	{% endfor %}
   </ul>

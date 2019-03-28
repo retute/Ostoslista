@@ -2,13 +2,20 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('items_create') }}">
-    <table>
+<table>
       <tr>
 	<td>
 	  {{ form.name.label }}
 	</td>
 	<td>
 	  {{ form.name }}
+	</td>
+	<td>
+	<ul>
+		{% for error in form.name.errors %}
+		<li>{{error}}</li>
+		{%endfor%}
+	</ul>
 	</td>
       </tr>
       <tr>
@@ -24,6 +31,6 @@
 	  <input type="submit" value="Add a new item"/>
 	</td>
       </tr>
-    </table>
+</table>
 </form>
 {% endblock %}

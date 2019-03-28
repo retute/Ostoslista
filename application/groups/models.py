@@ -1,7 +1,7 @@
 from application import db
 from application.models import Base
 
-class Category(db.Model):
+class Groups(db.Model):
 
     name = db.Column(db.String(144), nullable=False)
     done = db.Column(db.Boolean, nullable=False)

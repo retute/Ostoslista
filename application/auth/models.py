@@ -30,9 +30,8 @@ class User(Base):
         return True
     
     @staticmethod
-    def find_users_no_need_to_shop():
-        stmt = text("SELECT Account.id, Account.username FROM Account"
-                    " LEFT JOIN Item ON Item.account_id = Account.id"
+    def list_users():
+        stmt = text("SELECT Account.username FROM Account"
                     " GROUP BY Account.id")
         res = db.engine.execute(stmt)
         
