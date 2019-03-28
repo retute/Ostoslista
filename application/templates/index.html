@@ -2,6 +2,22 @@
 
 {% block body %}
   <p>
-    Something.
+    Welcome to use shopping list application.
   </p>
+  
+  {% if no_need_to_shop is defined %}
+  <p>
+  	The following users have checked their shopping lists:
+  </p>
+  
+  <ul>
+  	{% for user in no_need_to_shop %}
+  	<li>
+  		{{user.id}} {{user.username}}
+  	</li>
+  	{% endfor %}
+  </ul>
+  
+{% endif %}
+
 {% endblock %}
