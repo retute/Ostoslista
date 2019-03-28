@@ -37,6 +37,6 @@ class User(Base):
         
         response = []
         for row in res:
-            response.append({"id":row[0], "username":row[1]})
+            response.append({"username":row[0]})
             
         return response
