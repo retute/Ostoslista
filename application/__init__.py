@@ -1,5 +1,4 @@
 from flask import Flask
-from unittest.test.testmock.testpatch import function
 from distutils.command.config import config
 app = Flask(__name__)
 
