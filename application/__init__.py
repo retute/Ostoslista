@@ -1,5 +1,5 @@
 from flask import Flask
-from distutils.command.config import config
+#from distutils.command.config import config
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
