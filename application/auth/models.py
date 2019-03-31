@@ -5,14 +5,13 @@ from sqlalchemy.sql import text
 
 class User(Base):
 
-    __tablename__ = "account"
+    __tablename__ = "Account"
   
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     
-    items = db.relationship("Item", backref='account', lazy=True)
-
+    #items = db.relationship("Item", backref='account', lazy=True)
+    
     def __init__(self, username, password):
         self.username = username
         self.password = password

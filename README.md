@@ -15,10 +15,10 @@ Salasana: terotero
 
 
 ### Tulevia toiminnallisuuksia
-- Käyttäjä voi lisätä listaan eri kategorioita (esim. ruoka, hygienia, jne.), joiden alle ostoksia voi luokitella.
+- Käyttäjä voi asettaa tuotteelle kategorian tuotetta lisätessä
 
-	- Tämän korvaan toiminnallisuudella: porukka
+- Käyttäjä voi 
 
 - Käyttäjä voi poistaa listasta tuotteita
 
-- Porukka: Käyttäjä voi luoda listan, jonka hän jakaa listan muiden käyttäjien kesken
+- Käyttäjä voi hakea listaan tuotteita kategorian perusteella

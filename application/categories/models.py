@@ -4,9 +4,9 @@ from application.models import Base
 class Item(Base):
     
     name = db.Column(db.String(144), nullable=False)
-    check = db.Column(db.Boolean, nullable=False)
+    empty = db.Column(db.Boolean, nullable=False)
    # account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     def __init__(self, name):
         self.name = name
-        self.check = False
+        self.empty = False
