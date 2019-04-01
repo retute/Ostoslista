@@ -1,5 +1,5 @@
 from flask import Flask
-from distutils.command.config import config
+# from distutils.command.config import config
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
@@ -16,6 +16,7 @@ db = SQLAlchemy(app)
 
 #toiminnallisuus
 from application import views
+from application import models
 
 from application.items import models
 from application.items import views

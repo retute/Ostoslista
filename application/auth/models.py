@@ -5,12 +5,12 @@ from sqlalchemy.sql import text
 
 class User(Base):
 
-    __tablename__ = "Account"
+    __tablename__ = "account"
   
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
     
-    #items = db.relationship("Item", backref='account', lazy=True)
+    items = db.relationship("Item", backref='account', lazy=True)
     
     def __init__(self, username, password):
         self.username = username

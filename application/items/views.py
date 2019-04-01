@@ -36,6 +36,7 @@ def items_create():
     
     i = Item(form.name.data)
     i.check = form.check.data
+  #  i.category = form.category.data
     #i.account_id = current_user.id
 
     db.session().add(i)

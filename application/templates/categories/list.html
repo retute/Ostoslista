@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Number of items</th>
+    </tr>
+    {% for category in categories %}
+    <tr>
+      <td>{{ categort.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

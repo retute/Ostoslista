@@ -40,3 +40,4 @@ def auth_create():
     db.session().commit()
   
     return redirect(url_for("index"))
+
