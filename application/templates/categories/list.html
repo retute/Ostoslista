@@ -3,12 +3,19 @@
 {% block body %}
   <table>
     <tr>
-      <th>Category</th>
+      <th>Name</th>
       <th>Number of items</th>
     </tr>
     {% for category in categories %}
     <tr>
-      <td>{{ categort.name }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.size }}</td>
+      <td>
+	<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
+	  <input type="submit" value="Buy"/>
+	</form>
+	<button type="button" onclick="alert('Method 'remove' doesn't work yet!')">Remove!</button>
+      </td>
     </tr>
     {% endfor %}
   </table>

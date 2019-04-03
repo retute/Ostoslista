@@ -30,27 +30,28 @@ def items_set_checked(item_id):
 @login_required
 def items_create():
     form = ItemForm(request.form)
+#    formcategory = CategoryForm(request.formcateogry)
     
     if not form.validate():
         return render_template("items/new.html", form = form)
     
     i = Item(form.name.data)
     i.check = form.check.data
-  #  i.category = form.category.data
-    #i.account_id = current_user.id
+    i.category_id = 1
+    i.account_id = current_user.id
 
     db.session().add(i)
     db.session().commit()
   
     return redirect(url_for("items_index"))
 
-#@app.route("/items/<item_id>/", method=["POST"])
-#@login_required
-#def items_remove(item_id):
-   # form = ItemForm(request.form)
+@app.route("/items/<item_id>/", methods=["POST"])
+@login_required
+def items_remove(item_id):
+    form = ItemForm(request.form)
     
-#    i = Item.query.get(item_id)
-#    db.session().delete(i)
-#    db.session().commit()
+    i = Item.query.get(item_id)
+    db.session().delete(i)
+    db.session().commit()
     
-#    return redirect(url_for("items_index"))
+    return redirect(url_for("items_index"))

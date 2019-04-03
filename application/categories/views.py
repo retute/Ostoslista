@@ -18,19 +18,20 @@ def categories_index():
 #def categories_set_empty(category_id):
 #    return redirect(url_for("items_index"))
 
-#@app.route("/items/", methods=["POST"])
-#@login_required
-#def category_create():
-#    form = ItemForm(request.form)
-#    
-#    if not form.validate():
-#        return render_template("items/new.html", form = form)
+@app.route("/items/", methods=["POST"])
+@login_required
+def category_create(name):
+    form = CategoryForm(request.form)
     
-#    i = Item(form.name.data)
-#    i.check = form.check.data
-    #i.account_id = current_user.id
+    if not form.validate():
+        return render_template("items/new.html", form = form)
+    
+    c = Category(name)
+    c.size = 1
+    c.account_id = current_user.id
 
-#    db.session().add(i)
- #   db.session().commit()
+    db.session().add(c)
+    db.session().commit()
   
-  #  return redirect(url_for("items_index"))
+    return redirect(url_for("items_index"))
+
