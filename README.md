@@ -9,7 +9,7 @@ Salasana: terotero
 
 [Heroku-sovellus](https://ostoslista-tsoha.herokuapp.com/)
 
-[Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantakaavio.md)
+[Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/Ostoslista.ui.jpg)
 
 [Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
 
