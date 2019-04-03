@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
 class User(Base):
 
     __tablename__ = "account"
-  
+    
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
     
@@ -32,7 +32,7 @@ class User(Base):
     @staticmethod
     def list_users():
         stmt = text("SELECT Account.username FROM Account"
-                    " GROUP BY Account.id")
+                    " GROUP BY Account.username")
         res = db.engine.execute(stmt)
         
         response = []
