@@ -9,7 +9,7 @@ Salasana: terotero
 
 [Heroku-sovellus](https://ostoslista-tsoha.herokuapp.com/)
 
-[Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/Ostoslista.ui.jpg)
+[Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantakaavio.md)
 
 [Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
 
@@ -22,3 +22,5 @@ Salasana: terotero
 - Käyttäjä voi poistaa listasta tuotteita
 
 - Käyttäjä voi hakea listaan tuotteita kategorian perusteella
+
+https://github.com/retute/Ostoslista/blob/master/documentation/Ostoslista.ui.jpg
