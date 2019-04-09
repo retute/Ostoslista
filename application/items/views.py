@@ -15,13 +15,13 @@ def items_form():
 
 @app.route("/items/<item_id>/", methods=["POST"])
 @login_required
-def items_set_checked(item_id):
+def items_set_bought(item_id):
 
     i = Item.query.get(item_id)
-    if i.check == True:
-        i.check = False
+    if i.bought == True:
+        i.bought = False
     else:
-        i.check = True
+        i.bought = True
     db.session().commit()
   
     return redirect(url_for("items_index"))
@@ -35,8 +35,7 @@ def items_create():
     if not form.validate():
         return render_template("items/new.html", form = form)
     
-    i = Item(form.name.data)
-    i.check = form.check.data
+    i = Item(form.name.data, form.bought.data)
     i.category_id = 1
     i.account_id = current_user.id
 

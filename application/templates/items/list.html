@@ -5,14 +5,14 @@
   <table>
     <tr>
       <th>Item</th>
-      <th>Checked</th>
+      <th>Bought</th>
     </tr>
     {% for item in items %}
     <tr>
       <td>{{ item.name }}</td>
-      <td>{{ item.check }}</td>
+      <td>{{ item.bought }}</td>
       <td>
-		<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
+		<form method="POST" action="{{ url_for('items_set_bought', item_id=item.id) }}">
 	  		<input type="submit" value="Buy"/>
 		</form>
     	<form method="POST" action="{{ url_for('items_remove', item_id=item.id) }}">
