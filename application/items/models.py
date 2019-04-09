@@ -9,7 +9,7 @@ class Item(Base):
     name = db.Column(db.String(144), nullable=False)
     check = db.Column(db.Boolean, nullable=False)
     
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+#    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 #    category_name = db.Column(db.String(144), db.ForeignKey('category.name'), nullable=False)
 
@@ -20,21 +20,15 @@ class Item(Base):
         
     
     @staticmethod
-    def list_items_of_user():
-        stmt = text("SELECT Item.name, Item.check FROM Item"
-                    "Left JOIN Account ON Item.account_id = Account.id"
-                    " WHERE Item.account_id = 1"
-                    " GROUP BY Item.id")
-#        stmt.setInteger(1, current_user.id)
+    def list_items_of_user(account=0):
+        stmt = text("SELECT Item.name FROM Item"
+                    " JOIN Account ON Item.account_id = Account.id"
+                    " WHERE (Item.account_id = :account)"
+                    " GROUP BY Item.id").params(account=account)
         res = db.engine.execute(stmt)
         
         response = []
         for row in res:
-            response.append({"name":row[0]}, {"check":row[1]})
+            response.append({"name":row[0]})
             
         return response
-
-    @staticmethod
-    def remove_item(item_id):
-        stmt = text("DELETE FROM Item"
-                    " WHERE item.id = ?")

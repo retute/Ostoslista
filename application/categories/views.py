@@ -18,7 +18,7 @@ def categories_index():
 #def categories_set_empty(category_id):
 #    return redirect(url_for("items_index"))
 
-@app.route("/items/", methods=["POST"])
+@app.route("/categories/create/", methods=["POST"])
 @login_required
 def category_create(name):
     form = CategoryForm(request.form)

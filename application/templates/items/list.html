@@ -12,10 +12,12 @@
       <td>{{ item.name }}</td>
       <td>{{ item.check }}</td>
       <td>
-	<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
-	  <input type="submit" value="Buy"/>
-	</form>
-	<button type="button" onclick="alert('Method 'remove' doesn't work yet!')">Remove!</button>
+		<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
+	  		<input type="submit" value="Buy"/>
+		</form>
+    	<form method="POST" action="{{ url_for('items_remove', item_id=item.id) }}">
+    		<input type="submit" value="Delete"/>
+    	</form>
       </td>
     </tr>
     {% endfor %}

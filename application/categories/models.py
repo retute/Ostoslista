@@ -6,8 +6,8 @@ class Category(Base):
     name = db.Column(db.String(144), nullable=False)
     size = db.Column(db.Integer, nullable=False)
     
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-    items = db.relationship("Item", backref='category', lazy=True)
+#    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
+#    items = db.relationship("Item", backref='category', lazy=True)
 
     def __init__(self, name):
         self.name = name

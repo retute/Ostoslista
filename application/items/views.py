@@ -4,9 +4,9 @@ from application.items.models import Item
 from application.items.forms import ItemForm
 from flask_login import login_required, current_user
 
-@app.route("/items", methods=["GET"])
+@app.route("/items", methods=["GET","POST"])
 def items_index():
-    return render_template("items/list.html", items = Item.query.all())
+    return render_template("items/list.html", items=Item.list_items_of_user(current_user.id))
 
 @app.route("/items/new/")
 @login_required
@@ -45,11 +45,10 @@ def items_create():
   
     return redirect(url_for("items_index"))
 
-@app.route("/items/<item_id>/", methods=["POST"])
+@app.route("/items/remove/<item_id>/", methods=["POST"])
 @login_required
 def items_remove(item_id):
     form = ItemForm(request.form)
-    
     i = Item.query.get(item_id)
     db.session().delete(i)
     db.session().commit()
