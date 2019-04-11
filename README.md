@@ -13,6 +13,9 @@ Salasana: terotero
 
 [Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
 
+[Käyttöohje]
+(https://github.com/retute/Ostoslista/blob/master/documentation/kayttoonotto.md)
+
 
 ### Tulevia toiminnallisuuksia
 - Käyttäjä voi asettaa tuotteelle kategorian tuotetta lisätessä
