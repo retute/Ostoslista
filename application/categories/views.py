@@ -1,10 +1,10 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from application.items.models import Item
-from application.items.forms import ItemForm
+from application.categories.models import Category
+from application.categories.forms import CategoryForm
 from flask_login import login_required, current_user
 
-@app.route("/categories", methods=["GET"])
+@app.route("/categories", methods=["GET", "POST"])
 def categories_index():
     return render_template("categories/list.html", categories = Category.query.all())
 

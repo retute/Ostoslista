@@ -1,11 +1,12 @@
 from application import db
-from application.models import Base
 
 from sqlalchemy.sql import text
 
-class User(Base):
+class User(db.Model):
 
     __tablename__ = "account"
+    
+    id = db.Column(db.Integer, primary_key=True)
     
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
@@ -29,10 +30,13 @@ class User(Base):
     def is_authenticated(self):
         return True
     
+    def roles(selfself):
+        return["ADMIN"]
+    
     @staticmethod
     def list_users():
         stmt = text("SELECT Account.username FROM Account"
-                    " GROUP BY Account.username")
+                    " GROUP BY Account.id")
         res = db.engine.execute(stmt)
         
         response = []
