@@ -1,11 +1,11 @@
 from application import db
-from application.models import Base
 
 from sqlalchemy.sql import text
 from flask_login.utils import current_user
 
-class Item(Base):
+class Item(db.Model):
     
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(144), nullable=False)
     bought = db.Column(db.Boolean, nullable=False)
     
@@ -13,10 +13,9 @@ class Item(Base):
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 #    category_name = db.Column(db.String(144), db.ForeignKey('category.name'), nullable=False)
 
-    def __init__(self, name, bought):
+    def __init__(self, name):
         self.name = name
-        self.bought = False
-        
+        self.account_id = current_user.id
         
     
     @staticmethod
