@@ -20,7 +20,7 @@ class Item(db.Model):
     
     @staticmethod
     def list_items_of_user(account=0):
-        stmt = text("SELECT Item.name FROM Item"
+        stmt = text("SELECT Item.id, Item.name, Item.bought FROM Item"
                     " JOIN Account ON Item.account_id = Account.id"
                     " WHERE (Item.account_id = :account)"
                     " GROUP BY Item.id").params(account=account)
@@ -28,6 +28,6 @@ class Item(db.Model):
         
         response = []
         for row in res:
-            response.append({"name":row[0]})
+            response.append({"id":row[0], "name":row[1], "bought":row[2]})
             
         return response
