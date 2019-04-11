@@ -11,11 +11,18 @@
       <td>{{ category.name }}</td>
       <td>{{ category.size }}</td>
       <td>
-	<form method="POST" action="{{ url_for('items_set_checked', item_id=item.id) }}">
-	  <input type="submit" value="Buy"/>
+	<form method="POST" action="{{ url_for('category_delete', category_id_id=category.id) }}">
+	  <input type="submit" value="Delete"/>
 	</form>
-	<button type="button" onclick="alert('Method 'remove' doesn't work yet!')">Remove!</button>
       </td>
+      <td>
+      <form method="POST" action="{{ rl_for('category_rename', category_id=category.id) }}">
+      	<td> {{ form.name.label }} </td>
+      	<td> {{ form.name }}</td>
+      	<td>
+      		<input type="submit" value="Rename"/>
+      	</td>
+      </form>
     </tr>
     {% endfor %}
   </table>

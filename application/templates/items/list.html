@@ -15,6 +15,8 @@
 		<form method="POST" action="{{ url_for('items_set_bought', item_id=item.id) }}">
 	  		<input type="submit" value="Buy"/>
 		</form>
+	</td>
+	<td>
     	<form method="POST" action="{{ url_for('items_remove', item_id=item.id) }}">
     		<input type="submit" value="Delete"/>
     	</form>
