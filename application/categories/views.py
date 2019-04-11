@@ -6,28 +6,28 @@ from flask_login import login_required, current_user
 
 @app.route("/categories", methods=["GET"])
 def categories_index():
-    return render_template("categories/list.html", items = Item.query.all())
+    return render_template("categories/list.html", categories = Category.query.all())
 
-#@app.route("/items/new/")
-#@login_required
-#def categories_form():
-#    return render_template("items/new.html", form = ItemForm())
-
-#@app.route("/categories/<item_id>/", methods=["POST"])
-#@login_required
-#def categories_set_empty(category_id):
-#    return redirect(url_for("items_index"))
-
-@app.route("/categories/create/", methods=["POST"])
+@app.route("/categories/new/")
 @login_required
-def category_create(name):
+def categories_form():
+    return render_template("categories/new.html", form = GategoryForm())
+
+@app.route("/categories/<category_id>/", methods=["POST"])
+@login_required
+def categories_remove(category_id):
+    return redirect(url_for("categories_index"))
+
+@app.route("/categories/", methods=["POST"])
+@login_required
+def category_create():
     form = CategoryForm(request.form)
     
     if not form.validate():
-        return render_template("items/new.html", form = form)
+        return render_template("category/new.html", form = form)
     
-    c = Category(name)
-    c.size = 1
+    c = Category(form.category.data)
+#    c.size = 0
     c.account_id = current_user.id
 
     db.session().add(c)

@@ -1,8 +1,8 @@
 from application import db
-from application.models import Base
 
-class Category(Base):
+class Category(db.Model):
     
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(144), nullable=False)
     size = db.Column(db.Integer, nullable=False)
     
