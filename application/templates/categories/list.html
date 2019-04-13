@@ -3,7 +3,7 @@
 {% block body %}
   <table>
   	<tr>
-  		<li><a href="{{ url_for('category_create') }}">Add new</a></li>
+  		<li><a href="{{ url_for('categories_form') }}">Add new</a></li>
   	</tr>
     <tr>
       <th>Name</th>
@@ -14,18 +14,10 @@
       <td>{{ category.name }}</td>
       <td>{{ category.size }}</td>
       <td>
-	<form method="POST" action="{{ url_for('category_delete', category_id_id=category.id) }}">
+	<form method="POST" action="{{ url_for('categories_remove', category_id=category.id) }}">
 	  <input type="submit" value="Delete"/>
 	</form>
       </td>
-      <td>
-      <form method="POST" action="{{ rl_for('category_rename', category_id=category.id) }}">
-      	<td> {{ form.name.label }} </td>
-      	<td> {{ form.name }}</td>
-      	<td>
-      		<input type="submit" value="Rename"/>
-      	</td>
-      </form>
     </tr>
     {% endfor %}
   </table>
