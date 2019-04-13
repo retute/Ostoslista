@@ -9,9 +9,8 @@ class Item(db.Model):
     name = db.Column(db.String(144), nullable=False)
     bought = db.Column(db.Boolean, nullable=False)
     
-#    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-#    category_name = db.Column(db.String(144), db.ForeignKey('category.name'), nullable=False)
 
     def __init__(self, name):
         self.name = name
