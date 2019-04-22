@@ -14,9 +14,10 @@ def categories_index():
 def categories_form():
     return render_template("categories/new.html", form = CategoryForm())
 
-@app.route("/categories/<category_id>/", methods=["POST"])
+@app.route("/categories/remove/<category_id>/", methods=["POST"])
 @login_required
 def categories_remove(category_id):
+    form=CategoryForm(request.form)
     c = Category.query.get(category_id)
     if c.size <= 0:
         db.session().delete(c)
@@ -40,4 +41,3 @@ def category_create():
     db.session().commit()
   
     return redirect(url_for("categories_index"))
-
