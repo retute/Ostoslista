@@ -50,15 +50,21 @@ def items_create():
     if not form.validate():
         return render_template("items/new.html", form = form)
     
-    i = Item(form.name.data)
-    i.bought = form.bought.data
-    i.category_id = 1
-    i.account_id = current_user.id
+    name = form.name.data
+    it = Item.query.filter_by(name=name).first()
+    if it:
+        return render_template("items/new.html", form=form, error = "Item is already listed!")
+    i = Item(name)
     
-    c = Category.query.get(i.category_id)
+    cid = form.category_id.data
+    c = Category.query.get(cid)
     if not c:
         return render_template("categories_index", error="Create a new category first!")
     c.size = c.size + 1
+    i.category_id = cid
+    
+    i.bought = form.bought.data
+    i.account_id = current_user.id
 
     db.session().add(i)
     db.session().commit()
