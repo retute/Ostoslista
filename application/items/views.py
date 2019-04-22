@@ -1,9 +1,11 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.categories.models import Category
+from application.categories.forms import CategoryForm
 from application.items.models import Item
 from application.items.forms import ItemForm
 from flask_login import login_required, current_user
+from _overlapped import NULL
 
 @app.route("/items", methods=["GET","POST"])
 def items_index():
@@ -31,6 +33,8 @@ def items_set_bought(item_id):
 def items_remove(item_id):
     form = ItemForm(request.form)
     i = Item.query.get(item_id)
+    c = Category.query.get(i.category_id)
+    c.size = c.size - 1
     db.session().delete(i)
     db.session().commit()
     
@@ -41,7 +45,7 @@ def items_remove(item_id):
 @login_required
 def items_create():
     form = ItemForm(request.form)
-#    formcategory = CategoryForm(request.formcateogry)
+    form2 = CategoryForm(request.form)
     
     if not form.validate():
         return render_template("items/new.html", form = form)
@@ -50,6 +54,11 @@ def items_create():
     i.bought = form.bought.data
     i.category_id = 1
     i.account_id = current_user.id
+    
+    c = Category.query.get(i.category_id)
+    if not c:
+        return render_template("categories_index", error="Create a new category first!")
+    c.size = c.size + 1
 
     db.session().add(i)
     db.session().commit()
