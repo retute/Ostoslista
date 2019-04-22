@@ -24,6 +24,6 @@ class Category(db.Model):
         
         response = []
         for row in res:
-            response.append({"item":row[0]})
+            response.append({"name":row[0], "size":[1]})
             
         return response
