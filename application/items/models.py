@@ -1,7 +1,7 @@
 from application import db
 
 from sqlalchemy.sql import text
-from flask_login.utils import current_user
+from flask_login.utils import current_user, login_required
 
 class Item(db.Model):
     
@@ -18,6 +18,7 @@ class Item(db.Model):
         
     
     @staticmethod
+    @login_required
     def list_items_of_user(account=0):
         stmt = text("SELECT Item.id, Item.name, Item.bought FROM Item"
                     " JOIN Account ON Item.account_id = Account.id"

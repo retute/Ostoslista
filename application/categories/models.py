@@ -3,7 +3,7 @@ from application import db
 class Category(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(144), nullable=False)
+    name = db.Column(db.String(144), nullable=False, unique=True)
     size = db.Column(db.Integer, nullable=False)
     
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)

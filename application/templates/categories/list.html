@@ -1,14 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
+  <table class="table">
   	<tr>
-  		<li><a href="{{ url_for('categories_form') }}">Add new</a></li>
+  		<a href="{{ url_for('categories_form') }}" class="btn btn-link btn-lg active" role="button" aria-pressed="true">Add new</a>
   	</tr>
+  	<thead>
     <tr>
       <th>Name</th>
       <th>Size</th>
     </tr>
+    </thead>
+    <tbody>
     {% for category in categories %}
     <tr>
       <td>{{ category.name }}</td>
@@ -20,5 +23,6 @@
       </td>
     </tr>
     {% endfor %}
+    </tbody>
   </table>
 {% endblock %}
