@@ -1,11 +1,7 @@
 # Ostoslista
 
-Ostoslista on tarkoitettu käyttäjän tarpeiden listaamiseen tulevia ostosreissuja varten. Käyttäjä voi luoda tunnuksen tunnuksenluomissivulla. Tämän jälkeen käyttäjä kirjautuu sisään ohjelmaan omalla käyttäjätunnuksella ja salasanalla. Kirjautumisen jälkeen hän saa listan tulevista ostoksista.
+Ostoslista on tarkoitettu käyttäjän tarpeiden listaamiseen tulevia ostosreissuja varten. Käyttäjä voi luoda käyttäjätunnuksen tunnuksenluomissivulla. Tämän jälkeen käyttäjä kirjautuu sisään ohjelmaan omalla käyttäjätunnuksella ja salasanalla. Kirjautumisen jälkeen hän saa listan tulevista ostoksista.
 Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Käyttäjä voi lopuksi kirjautua ulos.
-
-Käyttäjätunnut: tero
-
-Salasana: terotero
 
 [Heroku-sovellus](https://ostoslista-tsoha.herokuapp.com/)
 
@@ -16,13 +12,18 @@ Salasana: terotero
 [Käyttöohje](https://github.com/retute/Ostoslista/blob/master/documentation/kayttoonotto.md)
 
 
-### Tulevia toiminnallisuuksia
-- Käyttäjä voi asettaa tuotteelle kategorian tuotetta lisätessä
+## Muokattavaa
 
-- Käyttäjä voi 
+- Ostoslistassa näkyy, onko tuote ostettu vai ei
 
-- Käyttäjä voi poistaa listasta tuotteita
+- Ostoslistassa näkyy jokaisen tuotteen kategoria
 
-- Käyttäjä voi hakea listaan tuotteita kategorian perusteella
+- Jokainen käyttäjätunnus ja kategorianimi on uniikki
 
-https://github.com/retute/Ostoslista/blob/master/documentation/Ostoslista.ui.jpg
+## Jatkokehitysideoita
+
+- Käyttäjä voi nähdä listan tuotteista kategoriakohtaisesti
+
+- Käyttäjä voi poistaa oman käyttäjätunnuksensa
+
+- Käyttäjä voi muokata kategorian/tuotteen nimeä
