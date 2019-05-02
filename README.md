@@ -9,7 +9,7 @@ Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Käytt
 
 [Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
 
-[Käyttöohje](https://github.com/retute/Ostoslista/blob/master/documentation/kayttoonotto.md)
+[Käyttöönotto](https://github.com/retute/Ostoslista/blob/master/documentation/kayttoonotto.md)
 
 
 ## Muokattavaa
