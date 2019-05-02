@@ -7,7 +7,7 @@ from flask_login import login_required, current_user
 @app.route("/categories", methods=["GET", "POST"])
 @login_required
 def categories_index():
-    return render_template("categories/list.html", categories = Category.query.all())
+    return render_template("categories/list.html", categories = Category.list_category())
 
 @app.route("/categories/new/")
 @login_required
