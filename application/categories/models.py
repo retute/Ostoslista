@@ -1,5 +1,8 @@
 from application import db
 
+from sqlalchemy.sql import text
+from flask_login.utils import current_user, login_required
+
 class Category(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
@@ -14,16 +17,17 @@ class Category(db.Model):
         self.size = 1
         
     @staticmethod
-    @staticmethod
-    def list_category():
+    @login_required
+    def list_categories_for_user(account=0):
         stmt = text("SELECT Category.name, Category.size FROM Category"
-                    " WHERE Category.size > -1"
-                    " GROUP BY Category.size")
+                    " WHERE (Category.account_id = :account OR Category.account_id=0)"
+                    " ORDER BY Category.size").params(account=account)
         
         res = db.engine.execute(stmt)
         
         response = []
         for row in res:
-            response.append({"name":row[0], "size":[1]})
+            response.append({"name":row[0], "size":row[1]})
             
         return response
+

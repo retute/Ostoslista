@@ -7,7 +7,7 @@ from flask_login import login_required, current_user
 @app.route("/categories", methods=["GET", "POST"])
 @login_required
 def categories_index():
-    return render_template("categories/list.html", categories = Category.list_category())
+    return render_template("categories/list.html", categories = Category.list_categories_for_user(current_user.id))
 
 @app.route("/categories/new/")
 @login_required
@@ -41,3 +41,8 @@ def category_create():
     db.session().commit()
   
     return redirect(url_for("categories_index"))
+
+#@app.route("/categories/", methods=["POST"])
+#@login_required
+#def category_items():
+#    form = CategoryForm(request)
