@@ -33,7 +33,7 @@ def category_create():
     if not form.validate():
         return render_template("category/new.html", form = form)
     
-    c = Category(form.name.data)
+    c = Category(form.cname.data)
     c.account_id = current_user.id
     c.size = 0;
 

@@ -3,7 +3,7 @@
 {% block body %}
   <table class="table">
   	<tr>
-  		<a href="{{ url_for('categories_form') }}" class="btn btn-link btn-lg active" role="button" aria-pressed="true">Add new</a>
+  		<a href="{{ url_for('categories_form') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add new</a>
   	</tr>
   	<thead>
     <tr>
@@ -14,7 +14,7 @@
     <tbody>
     {% for category in categories %}
     <tr>
-      <td>{{ category.name }}</td>
+      <td>{{ category.cname }}</td>
       <td>{{ category.size }}</td>
       <td>
 	<form method="POST" action="{{ url_for('categories_remove', category_id=category.id) }}">

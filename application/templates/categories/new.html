@@ -4,14 +4,14 @@
 <form method="POST" action="{{ url_for('category_create') }}">
  	<div class="form-group row">
 		<td>
-			 {{ form.name.label }}
+			 {{ form.cname.label }}
 		</td>
 		<div class="col-sm-10">
 			<td>
-			  {{ form.name }}
+			  {{ form.cname }}
 			</td>
 			<ul>
-				{% for error in form.name.errors %}
+				{% for error in form.cname.errors %}
 				<li>{{error}}</li>
 				{%endfor%}
 			</ul>

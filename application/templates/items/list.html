@@ -2,11 +2,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<div class="table-responsive"></div>
   <table class="table table-striped">
   <thead>
     <tr>
       <th>Id</th>
       <th>Item</th>
+      <th>Category</th>
       <th>Bought</th>
     </tr>
   </thead>
@@ -15,6 +17,7 @@
     <tr>
       <td>{{ item.id }}</td>
       <td>{{ item.name }}</td>
+      <td>{{ item.cname }}</th>
       <td>{{ item.bought }}</td>
       <td>
 		<form method="POST" action="{{ url_for('items_set_bought', item_id=item.id) }}">
@@ -30,4 +33,5 @@
     {% endfor %}
   </tbody>
   </table>
+  </div>
 {% endblock %}
