@@ -20,14 +20,15 @@ class Item(db.Model):
     @staticmethod
     @login_required
     def list_items_of_user(account=0):
-        stmt = text("SELECT Item.id, Item.name, Item.bought FROM Item"
+        stmt = text("SELECT Item.id, Item.name, Category.name cn, Item.bought FROM Item"
                     " JOIN Account ON Item.account_id = Account.id"
+                    " JOIN Category ON Item.category_id = Category.id"
                     " WHERE (Item.account_id = :account)"
                     " GROUP BY Item.id").params(account=account)
         res = db.engine.execute(stmt)
         
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1], "bought":row[2]})
+            response.append({"id":row[0], "name":row[1], "cn":row[2], "bought":row[3]})
             
         return response
