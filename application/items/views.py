@@ -5,7 +5,7 @@ from application.categories.forms import CategoryForm
 from application.items.models import Item
 from application.items.forms import ItemForm
 from flask_login import login_required, current_user
-from _overlapped import NULL
+#from _overlapped import NULL
 
 @app.route("/items", methods=["GET","POST"])
 def items_index():
