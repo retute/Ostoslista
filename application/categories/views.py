@@ -38,7 +38,7 @@ def category_create():
     form = CategoryForm(request.form)
     
     if not form.validate():
-        return render_template("category/new.html", form = form)
+        return render_template("categories/new.html", form = form)
     
     c = Category(form.cname.data)
     c.account_id = current_user.id
