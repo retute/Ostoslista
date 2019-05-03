@@ -18,10 +18,11 @@ Aktivoi virtuaaliympäristö komennolla
 
 ```
 $ source venv/bin/activate
-````
+```
+
 tai
 
-````
+```
 $ venv\Scripts\activate (Windows)
 ```
 
@@ -41,7 +42,7 @@ $ python run.py
 ```
 tai
 
-````
+```
 $ py -3 run.py (Windows)
 ```
 
