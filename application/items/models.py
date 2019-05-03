@@ -32,3 +32,4 @@ class Item(db.Model):
             response.append({"id":row[0], "name":row[1], "cname":row[2], "bought":row[3]})
             
         return response
+    

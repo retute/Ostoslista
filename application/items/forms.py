@@ -10,7 +10,7 @@ class ItemForm(FlaskForm):
     
     def __init__(self, *args, **kwargs):
         super(ItemForm, self).__init__(*args, **kwargs)
-        self.category_id.choices = [(x.id, x.cname) for x in Category.query.filter_by(account_id=current_user.id)]
+        self.category_id.choices = [(x.id, x.cname) for x in Category.query.filter(Category.account_id==current_user.id)]
     
     class Meta:
         csrf = False
