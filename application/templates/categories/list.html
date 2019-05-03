@@ -2,11 +2,10 @@
 
 {% block body %}
  {% if current_user.is_authenticated %}
-  <div class="table-responsive">
+ <div class="table-responsive">
+ <h4>Here you see all the categories that are already created. If there is something missing, please add the new one.</h4>
+ <p class="text-danger sm">Please notice that you can only delete category if its size is 0.</p>
   <table class="table">
-  	<tr>
-  		<a href="{{ url_for('categories_form') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add new</a>
-  	</tr>
   	<thead>
     <tr>
       <th>Id</th>
@@ -29,6 +28,9 @@
     {% endfor %}
     </tbody>
   </table>
-  </div>
+	<tr>
+  	  <a href="{{ url_for('categories_form') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Add new</a>
+  	</tr>
+ </div>
  {% endif %}
 {% endblock %}

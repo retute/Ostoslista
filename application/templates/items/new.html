@@ -3,6 +3,8 @@
 {% block body %}
 {% if current_user.is_authenticated %}
 <form method="POST" action="{{ url_for('items_create') }}">
+<p class="font-weight-bold">Add a new item by adding the name and choosing the category.</p>
+<p class="text-muted">The item's name should be at least 2 characters long.</p>
 <table>
     <tr>
 	<td>
