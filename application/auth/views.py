@@ -4,7 +4,6 @@ from flask_login import login_user, logout_user
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
-#from test.test_logging import TestUDPServer
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -12,7 +11,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # lis‰‰ t‰h‰n ehk‰
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
