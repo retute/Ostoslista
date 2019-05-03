@@ -55,7 +55,6 @@ def login_required(role="ANY"):
 
 #toiminnallisuus
 from application import views
-from application import models
 
 from application.items import models
 from application.items import views
