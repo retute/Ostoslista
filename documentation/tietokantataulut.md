@@ -8,8 +8,8 @@ Kun sovellus k‰ynnistet‰‰n ensimm‰isen kerran, niin tietokantaan luodaan seuraav
 ```
 CREATE TABLE account (
         id INTEGER NOT NULL,
-        username VARCHAR(20) NOT NULL,
-        password VARCHAR(20) NOT NULL,
+        username VARCHAR(100) NOT NULL,
+        password VARCHAR(100) NOT NULL,
         PRIMARY KEY (id),
         UNIQUE (username)
 )
@@ -20,14 +20,14 @@ CREATE TABLE account (
 - primary key
 - K‰ytt‰j‰‰ voidaan hakea kaikista k‰ytt‰jist‰ id.n perusteella.
 
-#### username VARCHAR(20) NOT NULL
-- K‰ytt‰j‰nimi, jonka maksimipituus 20 merkki‰.
+#### username VARCHAR(100) NOT NULL
+- K‰ytt‰j‰nimi, jonka maksimipituus 100 merkki‰.
 - Ei voi olla tyhj‰.
 - K‰ytt‰j‰nimi on uniikki eli toista samannimist‰ k‰ytt‰j‰‰ ei voi luoda.
 - K‰ytt‰j‰nime‰ k‰ytet‰‰n kirjautumisen yhteydess‰.
 
-#### password VARCHAR(20) NOT NULL
-- K‰ytt‰j‰n salasana, jonka maksimipituus 20 merkki‰.
+#### password VARCHAR(100) NOT NULL
+- K‰ytt‰j‰n salasana, jonka maksimipituus 100 merkki‰.
 - Ei voi olla tyhj‰.
 - Salasana ei n‰y muille sen teksikent‰ss‰: esim. salasana "koira" n‰kyy kent‰ss‰ "*****".
 
@@ -37,7 +37,7 @@ CREATE TABLE account (
 ```
 CREATE TABLE category (
         id INTEGER NOT NULL,
-        cname VARCHAR(20) NOT NULL,
+        cname VARCHAR(100) NOT NULL,
         size INTEGER NOT NULL,
         account_id INTEGER NOT NULL,
         PRIMARY KEY (id),
@@ -49,8 +49,8 @@ CREATE TABLE category (
 - Kategorian id, joka ei voi olla tyhj‰.
 - Primary key.
 
-#### cname VARCHAR(20) NOT NULL
-- Kateogrian nimi, jonka maksimipituus on 20 merkki‰.
+#### cname VARCHAR(100) NOT NULL
+- Kateogrian nimi, jonka maksimipituus on 100 merkki‰.
 - Nimi on uniikki eli sovelluksessa ei 
 - Nimi annetaan, kun luodaan uutta kategoriaa.
 
@@ -64,7 +64,7 @@ CREATE TABLE category (
 ```
 CREATE TABLE item (
         id INTEGER NOT NULL,
-        name VARCHAR(20) NOT NULL,
+        name VARCHAR(100) NOT NULL,
         bought BOOLEAN NOT NULL,
         category_id INTEGER NOT NULL,
         account_id INTEGER NOT NULL,
@@ -79,8 +79,8 @@ CREATE TABLE item (
 - Tuotteen id, joka ei voi olla tyhj‰.
 - Primary key.
 
-#### name VARCHAR(20) NOT NULL
-- Tuotteen nimi, jonka maksimipituus on 20 merkki‰.
+#### name VARCHAR(100) NOT NULL
+- Tuotteen nimi, jonka maksimipituus on 100 merkki‰.
 - Nimi annetaan, kun tuotetta lis‰t‰‰n listaan.
 - Nimen minimipituus on 2 merkki‰.
 

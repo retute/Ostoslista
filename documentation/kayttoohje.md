@@ -1,5 +1,12 @@
 # Käyttöohje
 
+Tältä sivulta löydät sovelluksen käyttöohjeen. Ohjeet on jaoteltu kategorioittain seuraavasti
+
+- Kirjautuminen
+- Kategoriat
+- Tuotteet
+
+
 ## Kirjautuminen
 
 ### Jos tuunnusta ei ole...
@@ -26,6 +33,24 @@
 
 ### Selaa kategorioita
 
-- Kategoriat löytyvät 
+- Kategoriat löytyvät kirjauduttua sivun yläpalkista linkistä "Categories".
+- Listasta voi nähdä kategorian id:n, nimen, koon ja napin kategorian poistamiselle.
+- Kategoriat ovat listattuna sivulla niiden suuruusjärjestyksessä eli eniten tuotteita omaava kategoria ensimmäisenä.
+- Kategorian poistaminen onnistuu, jos kategorian koko on nolla, painamalla *"Delete"*-nappia.
 
 ### Luo uusi
+
+- Kategorialistan yläpuolella on vihreä *"Add new"* -nappi, joka ohjaa sivulle, jossa voi luoda uuden kategorian.
+- Uutta kategoriaa luodessa täytyy keksiä kategorialle nimi, joka on vähintään 2 merkkiä pitkä ja enintään 100 merkkiä.
+- Jos tuotteen nimi on virheellinen, niin ohjelma valittaa tästä ja ohjaa uudestaan kategorian luomissivulle.
+
+
+## Tuotteet
+
+### Lisääminen
+- Ennen tuotteen lisäämistä täytyy tarkistaa, että haluttu kategoria on olemassa. Jos ei ole, niin täytyy se luoda ensin kategoriasivulla.
+- Sovelluksen yläpalkissa on linkki *"Add a new item"*, joka ohjaa tuotteen lisäämissivulle.
+- Sivulla on tekstikenttä, johon kirjotetaan tuotteen nimi ja valitaan sen alapuolelta haluttu kategoria.
+- Tuotteen voi merkitä jo alussa ostetuksi rastittamalla kohta *"Bought"*.
+
+### Selaaminen
