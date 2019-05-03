@@ -6,7 +6,7 @@ from flask_login.utils import current_user, login_required
 class Category(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
-    cname = db.Column(db.String(20), nullable=False)
+    cname = db.Column(db.String(100), nullable=False)
     size = db.Column(db.Integer, nullable=False)
     
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)

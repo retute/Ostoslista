@@ -6,7 +6,7 @@ from flask_login.utils import current_user, login_required
 class Item(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
     bought = db.Column(db.Boolean, nullable=False)
     
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
