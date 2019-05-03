@@ -4,6 +4,7 @@ from flask_login import login_user, logout_user
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
+from test.test_logging import TestUDPServer
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -35,6 +36,10 @@ def auth_create():
         return render_template("auth/new.html", form = form)
     
     u = User(form.username.data, form.password.data)
+    tryu = User.query.filter_by(username=form.username.data).first()
+    if tryu:
+        return render_template("auth/new.html", form = form,
+                               error = "Username is not available.")
 
     db.session().add(u)
     db.session().commit()
