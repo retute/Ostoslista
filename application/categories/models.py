@@ -14,12 +14,12 @@ class Category(db.Model):
 
     def __init__(self, cname):
         self.cname = cname
-        self.size = 1
+        self.size = 0
         
     @staticmethod
     @login_required
     def list_categories_for_user(account=0):
-        stmt = text("SELECT Category.cname, Category.size FROM Category"
+        stmt = text("SELECT Category.id, Category.cname, Category.size FROM Category"
                     " WHERE (Category.account_id = :account OR Category.account_id=0)"
                     " ORDER BY Category.size").params(account=account)
         
@@ -27,7 +27,9 @@ class Category(db.Model):
         
         response = []
         for row in res:
-            response.append({"cname":row[0], "size":row[1]})
+            response.append({"id": row[0], "cname":row[1], "size":row[2]})
             
         return response
 
+    def __repr__(self):
+        return str(id)

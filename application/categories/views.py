@@ -7,7 +7,8 @@ from flask_login import login_required, current_user
 @app.route("/categories", methods=["GET", "POST"])
 @login_required
 def categories_index():
-    return render_template("categories/list.html", categories = Category.list_categories_for_user(current_user.id))
+    categories = Category.list_categories_for_user(current_user.id)
+    return render_template("categories/list.html", categories = categories)
 
 @app.route("/categories/new/")
 @login_required
@@ -17,12 +18,18 @@ def categories_form():
 @app.route("/categories/remove/<category_id>/", methods=["POST"])
 @login_required
 def categories_remove(category_id):
-    form=CategoryForm(request.form)
-    c = Category.query.get(category_id)
+    c = Category.query.filter(Category.id==category_id).first()
+    
+    if not c:
+        return redirect(url_for("categories_index"))
+    
+    if c.account_id != current_user.id:
+        return redirect(url_for("categories_index"))
+    
     if c.size <= 0:
         db.session().delete(c)
         db.session().commit()
-        return redirect(url_for("categories_index"))
+    
     return redirect(url_for("categories_index"))
 
 @app.route("/categories/", methods=["POST"])
@@ -41,8 +48,3 @@ def category_create():
     db.session().commit()
   
     return redirect(url_for("categories_index"))
-
-#@app.route("/categories/", methods=["POST"])
-#@login_required
-#def category_items():
-#    form = CategoryForm(request)
