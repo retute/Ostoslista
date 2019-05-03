@@ -55,14 +55,16 @@ CREATE TABLE category (
 - Nimi annetaan, kun luodaan uutta kategoriaa.
 
 #### size INTEGER NOT NULL: 
-
+- Kategorian koko, joka on aluksi nolla.
+- Kun tuote lis‰t‰‰n kategoriaan, niin koko kasvaa.
+- Kun kategoriassa oleva tuote poistetaan, niin koko pienenee.
 
 ## Tuote (item)
 
 ```
 CREATE TABLE item (
         id INTEGER NOT NULL,
-        name VARCHAR(144) NOT NULL,
+        name VARCHAR(20) NOT NULL,
         bought BOOLEAN NOT NULL,
         category_id INTEGER NOT NULL,
         account_id INTEGER NOT NULL,
@@ -72,3 +74,28 @@ CREATE TABLE item (
         FOREIGN KEY(account_id) REFERENCES account (id)
 )
 ```
+
+#### id INTEGER NOT NULL
+- Tuotteen id, joka ei voi olla tyhj‰.
+- Primary key.
+
+#### name VARCHAR(20) NOT NULL
+- Tuotteen nimi, jonka maksimipituus on 20 merkki‰.
+- Nimi annetaan, kun tuotetta lis‰t‰‰n listaan.
+- Nimen minimipituus on 2 merkki‰.
+
+#### bought BOOLEAN NOT NULL
+- Status siit‰, onko tuotetta ostettu.
+- Oletusarvoisesti *bought=0* eli tuotetta ei ole ostettu.
+- Kun tuote ostetaan, niin *bought=1*.
+- Arvoa voi muuttaa sovelluksessa.
+
+#### category_id INTEGER NOT NULL
+- Tuotteen kategorian id-tunnus.
+- Jokaisella tuotteella oltava kategoria.
+- Foreign key.
+
+#### account_id INTEGER NOT NULL
+- Tuotteen luoman k‰ytt‰j‰n id-tunnus.
+- Jokaisella tuotteella on yksi k‰ytt‰j‰, joka sen on lis‰nnyt listaan.
+- Foreign key.
