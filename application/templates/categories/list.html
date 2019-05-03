@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  {% if current_user.is_authenticated %}
+ {% if current_user.is_authenticated %}
   <div class="table-responsive">
   <table class="table">
   	<tr>
@@ -30,5 +30,5 @@
     </tbody>
   </table>
   </div>
-  {% endif %}
+ {% endif %}
 {% endblock %}
