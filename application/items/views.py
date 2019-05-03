@@ -31,9 +31,16 @@ def items_set_bought(item_id):
 @app.route("/items/remove/<item_id>/", methods=["POST"])
 @login_required
 def items_remove(item_id):
-    form = ItemForm(request.form)
     i = Item.query.get(item_id)
+    
+    if not i:
+        return redirect(url_for("items_index"))
+    
     c = Category.query.get(i.category_id)
+    
+    if not c:
+        return redirect(url_for("items_index"))
+    
     c.size = c.size - 1
     db.session().delete(i)
     db.session().commit()
