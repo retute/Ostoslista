@@ -20,7 +20,8 @@ class Category(db.Model):
     @login_required
     def list_categories_for_user(account=0):
         stmt = text("SELECT Category.id, Category.cname, Category.size FROM Category"
-                    " WHERE (Category.account_id = :account OR Category.account_id=0)"
+                    " JOIN Account ON Category.account_id = Account.id"
+                    " WHERE (Category.account_id = :account)"
                     " ORDER BY Category.size").params(account=account)
         
         res = db.engine.execute(stmt)
