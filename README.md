@@ -5,7 +5,9 @@ Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Käytt
 
 [Heroku-sovellus](https://ostoslista-tsoha.herokuapp.com/)
 
-[Tietokantataulut](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantakaavio.md)
+[Tietokantakaavio](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantakaavio.md)
+
+[Tietokantataulut](https://github.com/retute/Ostoslista/blob/master/documentation/tietokantataulut.md)
 
 [Käyttötapaukset](https://github.com/retute/Ostoslista/blob/master/documentation/kayttotapaukset.md)
 
