@@ -60,13 +60,14 @@ def items_create():
     name = form.name.data
     it = Item.query.filter_by(name=name).first()
     if it:
-        return render_template("items/new.html", form=form, error = "Item is already listed!")
+        return render_template("items/new.html", form=form, 
+                               error = "Item is already listed!")
     i = Item(name)
     
     cid = form.category_id.data
     c = Category.query.get(cid)
     if not c:
-        return render_template("categories_index", error="Create a new category first!")
+        return render_template("categories_index")
     c.size = c.size + 1
     i.category_id = cid
     
