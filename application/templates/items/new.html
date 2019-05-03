@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
+{% if current_user.is_authenticated %}
 <form method="POST" action="{{ url_for('items_create') }}">
 <table>
     <tr>
@@ -51,4 +52,5 @@
       </tr>
 </table>
 </form>
+{% endif %}
 {% endblock %}
