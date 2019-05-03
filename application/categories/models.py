@@ -6,7 +6,7 @@ from flask_login.utils import current_user, login_required
 class Category(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
-    cname = db.Column(db.String(144), nullable=False, unique=True)
+    cname = db.Column(db.String(20), nullable=False)
     size = db.Column(db.Integer, nullable=False)
     
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
@@ -22,7 +22,7 @@ class Category(db.Model):
         stmt = text("SELECT Category.id, Category.cname, Category.size FROM Category"
                     " JOIN Account ON Category.account_id = Account.id"
                     " WHERE (Category.account_id = :account)"
-                    " ORDER BY Category.size").params(account=account)
+                    " ORDER BY Category.size DESC").params(account=account)
         
         res = db.engine.execute(stmt)
         
