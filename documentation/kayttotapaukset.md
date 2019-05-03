@@ -40,29 +40,40 @@ Käyttäjänä näen ostoslistan, johon olen itse lisännyt tuotteita ostettavaksi.
 Käyttäjänä näen listasta tuotteet ja niiden statuksen, jotta tiedän mitä on tullut ostettua ja mitä ei.
 
 > SELECT Item.id, Item.name, Category.cname, Item.bought FROM Item
-JOIN Account ON Item.account_id = Account.id
-JOIN Category ON Item.category_id = Category.id
-WHERE (Item.account_id = :account)
-GROUP BY Item.id
+ JOIN Account ON Item.account_id = Account.id
+ JOIN Category ON Item.category_id = Category.id
+ WHERE (Item.account_id = :account)
+ GROUP BY Item.id
 
 ## Ostaminen
 
 Käyttäjänä pystyn merkitsemään ostoslistan tuoteita ostetuksi, jotta tiedän mitä kaikkea olen jo ostanut.
 
-> UPDATE item SET bought=1 WHERE item.id = milk_id
+> UPDATE item SET bought=1 WHERE item.id = [milk_id]
 
 Käyttäjänä voin poistaa tuotteita ostoslistasta, jos en enää tarvitsekkaan jotain tuotetta. 
 
-> DELETE FROM item WHERE item.id = milk_id
+> DELETE FROM item WHERE item.id = [milk_id]
 
-## Kategorian luominen
+## Kategoriat
 
 Käyttäjänä pystyn luomaan sovelluksessa kategorioita, joiden mukaan ostokset luokitellaan.
 
 Kategorian luominen tapahtuu kategorian luomissivulla, jossa kategorialle annetaan nimi.
 
-> INSERT INTO category (cname, size, account_id) VALUES (snacks, 0, current_user.id) 
+> INSERT INTO category (cname, size, account_id) VALUES (snacks, 0, [current_user.id]) 
 
-Käyttäjä lisää ostokselle kategorian ja näin kasvattaa kategorian kokoa yhdellä.
+Käyttäjänä pystyn lisäämään ostokselle kategorian ja näin kasvattaa kategorian kokoa yhdellä.
 
-> UPDATE category SET size=1 WHERE category.id = snacks_id
+> UPDATE category SET size=1 WHERE category.id = [snacks_id]
+
+Käyttäjänä voin poistaa kategorian, jos kategorian koko on nolla eli yhtään tuotetta ei ole laitettu kyseiseen kategoriaan.
+
+> DELETE FROM category WHERE category.id = [snacks_id]
+
+Käyttäjänä pystyn selaamaan luomiani kategorioita, jotka on järjestetty kategorian koon mukaan: suurimmasta pienimpään.
+
+> SELECT Category.id, Category.cname, Category.size FROM Category
+ JOIN Account ON Category.account_id = Account.id
+ WHERE (Category.account_id = :account)
+ ORDER BY Category.size DESC

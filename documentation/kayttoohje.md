@@ -11,23 +11,25 @@ Tältä sivulta löydät sovelluksen käyttöohjeen. Ohjeet on jaoteltu kategorioittai
 
 ### Jos tunnusta ei ole...
 
-- Sovelluksen oikeassa yläkulmassa nappi "Sign up"
-- Valitse tunnus, joka on vähintään 4 merkkiä pitkä
-- Valitse salasanam joka on vähintään 4 merkkiä pitkä
-- Paina nappia "Create", jolloin sovellus ohjaa sinut kirjautumissivulle
-- Kirjaudu sovellukseen vasta luomasi tunnuksen ja salasanan avulla
+- Sovelluksen oikeassa yläkulmassa on nappi *"Sign up"*. Paina sitä.
+- Valitse tunnus, joka on vähintään 4 merkkiä pitkä.
+- Valitse salasana, joka on vähintään 4 merkkiä pitkä.
+- Et voi käyttää jo olemassa olevaa salasanaa.
+- Paina nappia *"Create"*, jolloin sovellus ohjaa sinut kirjautumissivulle.
+- Kirjaudu sovellukseen vastaluomasi tunnuksen ja salasanan avulla.
 
 ### Jos tunnus löytyy...
 
-- Oikeasta yläkulmasta löytyy nappi "Login". Paina siitä.
-- Syötä käyttäjätunnuksesi ja salasanasi oikeisiin kenttiin
-- Tämän jälkeen paina nappia "Login".
+- Oikeasta yläkulmasta löytyy nappi *"Login"*. Paina siitä.
+- Syötä käyttäjätunnuksesi ja salasanasi oikeisiin kenttiin.
+- Tämän jälkeen paina nappia *"Login"*.
 - Jos salasana ei vastaa käyttäjätunnusta, niin sovellus valittaa virheviestillä: "Username or password didn't match. Try again!".
 - Kun tunnus ja salasana ovat oikein, niin sovellus ohjaa sinut etusivulle.
 
 ### Kirjauduttua
 - Sivun yläpalkkiin ilmestyy linkit, joilla voi selata ostoslistaa, lisätä tuotteita listaan ja selata kategorioita
 - Sivun oikeassa ylälaidassa on nappi "Logged in as [username] -- Logout". Nappia painamalla käyttäjä voi kirjautua ulos.
+
 
 ## Kategoriat
 
@@ -56,6 +58,6 @@ Tältä sivulta löydät sovelluksen käyttöohjeen. Ohjeet on jaoteltu kategorioittai
 ### Selaaminen
 - Tuotteita pääsee selaamaan yläpalkin kohdasta *"Show the list".
 - Tuotteet on järjestetty niiden id:n mukaan eli pisimpään listalla ollut tuote on ensimmäisenä.
-- Kun tuotteen "bought"-tila on 0, niin tuotetta ei ole ostettu. Kun tila on 1, niin tuote on ostettu.
-- Napilla *"Buy"* voi muuttaa tuotteen tilaa siitä onko sitä ostettu (=1) vai ei (=0).
+- Kun tuotteen "bought"-tila on 0 (Herokussa *False*), niin tuotetta ei ole ostettu. Kun tila on 1 (Herokussa *True*), niin tuote on ostettu.
+- Napilla *"Buy"* voi muuttaa tuotteen tilaa siitä onko sitä ostettu (=1/True) vai ei (=0/False).
 - Yksittäisen tuotteen voi poistaa napista *"Delete"*, jolloin samalla pienenee kyseisen tuotteen kategorian koko.
