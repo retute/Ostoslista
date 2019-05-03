@@ -18,7 +18,7 @@
     <tr>
       <td>{{ item.id }}</td>
       <td>{{ item.name }}</td>
-      <td>{{ item.cname }}</th>
+      <td>{{ item.category_id }}</th>
       <td>{{ item.bought }}</td>
       <td>
 		<form method="POST" action="{{ url_for('items_set_bought', item_id=item.id) }}">
