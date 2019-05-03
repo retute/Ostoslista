@@ -3,6 +3,7 @@
 {% block body %}
 <form method="POST" action="{{ url_for('auth_create') }}">
   <p class="font-weight-bold">Choose your username and password. Both must be at least 4 characters long.</p>
+	{{ error }}
   <table>
     <tr>
       <td>
@@ -31,6 +32,5 @@
       </td>
     </tr>
     </table>
-    {{ error }}
 </form>
 {% endblock %}

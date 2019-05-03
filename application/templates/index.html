@@ -6,6 +6,8 @@
   </p>
   
   {% if list_users is defined %}
+  <div class="table-responsive">
+  <table>
   <p>
   	The following users are using this app:
   </p>
@@ -17,6 +19,8 @@
   	</li>
   	{% endfor %}
   </ul>
+  </table>
+  </div>
   
 {% endif %}
 
