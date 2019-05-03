@@ -2,6 +2,9 @@
 
 ## Puutteet ja heikkoudet
 
+### Heroku
+Tuotteiden listauksessa herokussa ei toiminut kategorian nimi, vaikka se onnistui saada n‰kyviin lokaalisti. Herokussa tuotteiden listauksessa n‰kyy kategorian kohdalla kategorian id. Lokaalisti n‰kyy kategorian nimi, mik‰ oli tavoitteena. Ongelma ilmeni vasta viimeisen‰ palautusp‰iv‰n‰, enk‰ ehtinyt en‰‰ korjaamaan sit‰ oikein.
+
 ### Errorit
 - Useista validointi-erroreista tulee ilmoitus. Olisin kuitenkin halunnut ilmoitukset punaisella tekstill‰, mutta en onnistunut siin‰.
 - Kategorian nimen asettaminen uniikiksi ei toiminut, sill‰ muuten kukaan muu k‰ytt‰j‰ ei olisi voinut luoda itselleen saman nimist‰ kategoriaa.
