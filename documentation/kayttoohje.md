@@ -54,3 +54,8 @@ Tältä sivulta löydät sovelluksen käyttöohjeen. Ohjeet on jaoteltu kategorioittai
 - Tuotteen voi merkitä jo alussa ostetuksi rastittamalla kohta *"Bought"*.
 
 ### Selaaminen
+- Tuotteita pääsee selaamaan yläpalkin kohdasta *"Show the list".
+- Tuotteet on järjestetty niiden id:n mukaan eli pisimpään listalla ollut tuote on ensimmäisenä.
+- Kun tuotteen "bought"-tila on 0, niin tuotetta ei ole ostettu. Kun tila on 1, niin tuote on ostettu.
+- Napilla *"Buy"* voi muuttaa tuotteen tilaa siitä onko sitä ostettu (=1) vai ei (=0).
+- Yksittäisen tuotteen voi poistaa napista *"Delete"*, jolloin samalla pienenee kyseisen tuotteen kategorian koko.
