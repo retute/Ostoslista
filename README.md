@@ -6,6 +6,7 @@ Kategorian luomiseen on oma sivustonsa. Kirjautunut käyttäjä voi selata kategori
 
 Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Myös tuotteiden poistaminen listasta on mahdollista. Käyttäjä voi lopuksi kirjautua ulos.
 
+
 ## Alla linkkejä sovellukseen ja sen dokumentaatioon
 
 [Heroku-sovellus](https://ostoslista-tsoha.herokuapp.com/)
@@ -21,3 +22,8 @@ Käyttäjä voi merkitä ostokset tehdyiksi tai lisätä listaan uusia tarpeita. Myös 
 [Käyttöohje](https://github.com/retute/Ostoslista/blob/master/documentation/kayttoohje.md)
 
 [Puutteet ja kehitysideat](https://github.com/retute/Ostoslista/blob/master/documentation/kehityspuute.md)
+
+
+##Testikäyttäjä HEROKUSSA
+Username: tero
+Password: terotero
