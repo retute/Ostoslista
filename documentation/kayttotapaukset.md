@@ -2,6 +2,11 @@
 
 ## Tunnuksen luominen ja kirjautuminen
 
+Kirjautumatta näen etusivun, jossa on listattuna kaikki sovellusta käyttävät käyttäjänimet.
+
+> SELECT Account.username FROM Account
+GROUP BY Account.id
+
 Käyttäjänä pystyn luomaan uuden käyttäjätunnuksen sovellukseen, joilla voin kirjautua sisään.
 
 > INSERT INTO account (username, password) VALUES (kayttaja, salasana)
@@ -25,33 +30,39 @@ Käyttäjänä pystyn lisäämään ostoslistaan tuotteita, jotta muistaisin ostaa ne se
 
 Käyttäjänä pystyn asettamaan ostokselle kategorian, joka määrittelee ostoksen käyttötarkoitusta.
 
+> INSERT INTO item (name, bought, category_id, account_id) VALUES (milk, 0, drinks_id, current_user.id)
+
+
 ## Ostoslista
 
 Käyttäjänä näen ostoslistan, johon olen itse lisännyt tuotteita ostettavaksi.
 
+Käyttäjänä näen listasta tuotteet ja niiden statuksen, jotta tiedän mitä on tullut ostettua ja mitä ei.
+
 > SELECT Item.id, Item.name, Category.cname, Item.bought FROM Item
-
-> JOIN Account ON Item.account_id = Account.id
-
-> JOIN Category ON Item.category_id = Category.id
-
-> WHERE (Item.account_id = :account)
-
-> GROUP BY Item.id
+JOIN Account ON Item.account_id = Account.id
+JOIN Category ON Item.category_id = Category.id
+WHERE (Item.account_id = :account)
+GROUP BY Item.id
 
 ## Ostaminen
 
 Käyttäjänä pystyn merkitsemään ostoslistan tuoteita ostetuksi, jotta tiedän mitä kaikkea olen jo ostanut.
 
+> UPDATE item SET bought=1 WHERE item.id = milk_id
+
 Käyttäjänä voin poistaa tuotteita ostoslistasta, jos en enää tarvitsekkaan jotain tuotetta. 
 
-Käyttäjänä näen listasta tuotteet ja niiden statuksen, jotta tiedän mitä on tullut ostettua ja mitä ei.
+> DELETE FROM item WHERE item.id = milk_id
 
 ## Kategorian luominen
 
 Käyttäjänä pystyn luomaan sovelluksessa kategorioita, joiden mukaan ostokset luokitellaan.
 
-Kategorian luominen tapahtuu kategorian luomissivulla, jossa kategorialle annetaan nimi. 
+Kategorian luominen tapahtuu kategorian luomissivulla, jossa kategorialle annetaan nimi.
+
+> INSERT INTO category (cname, size, account_id) VALUES (snacks, 0, current_user.id) 
 
 Käyttäjä lisää ostokselle kategorian ja näin kasvattaa kategorian kokoa yhdellä.
 
+> UPDATE category SET size=1 WHERE category.id = snacks_id
