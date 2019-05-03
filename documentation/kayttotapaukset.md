@@ -2,19 +2,42 @@
 
 ## Tunnuksen luominen ja kirjautuminen
 
-
 Käyttäjänä pystyn luomaan uuden käyttäjätunnuksen sovellukseen, joilla voin kirjautua sisään.
+
+> INSERT INTO account (username, password) VALUES (kayttaja, salasana)
 
 Käyttäjänä voin kirjautua sovellukseen sisään luomallani käyttäjätunnuksella ja salasanalla, jolloin minulle aukeaa kaikki sovelluksen tarjoamat ominaisuudet.
 
+> SELECT account.id AS account_id, account.username AS account_username, account.password AS account_password
+FROM account
+WHERE account.username = kayttaja AND account.password = salasana
 
-## Ostosten lisääminen
+Kirjautuessa käyttäjätunnuksella saan virheilmoituksen, jos käyttäjätunnut tai salasana on virheellinen.
+
+*"Username or password didn't match. Try again!"*
+
+
+## Ostosten lisääminen ostoslistaan
 
 Käyttäjänä pystyn siirtymään sivulle, jossa pystyn lisäämään ostoksia ostoslistaan. 
 
 Käyttäjänä pystyn lisäämään ostoslistaan tuotteita, jotta muistaisin ostaa ne seuraavan tilaisuuden tullen.
 
 Käyttäjänä pystyn asettamaan ostokselle kategorian, joka määrittelee ostoksen käyttötarkoitusta.
+
+## Ostoslista
+
+Käyttäjänä näen ostoslistan, johon olen itse lisännyt tuotteita ostettavaksi.
+
+> SELECT Item.id, Item.name, Category.cname, Item.bought FROM Item
+
+> JOIN Account ON Item.account_id = Account.id
+
+> JOIN Category ON Item.category_id = Category.id
+
+> WHERE (Item.account_id = :account)
+
+> GROUP BY Item.id
 
 ## Ostaminen
 
